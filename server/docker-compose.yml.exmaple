@@ -1,0 +1,18 @@
+version: "3"
+services:
+  ngrok-server:
+    build: ./
+    image: zhb127/ngrok-server
+    container_name: ngrok-server
+    networks:
+      - "ngrok-server-net"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "4443:4443"
+    volumes:
+      - "./myfiles:/myfiles"
+    environment:
+      NGROK_DOMAIN: "yourdomain.com"
+networks:
+  ngrok-server-net:

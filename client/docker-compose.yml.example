@@ -1,0 +1,16 @@
+version: "3"
+services:
+  ngrok-client:
+    build: ./
+    image: zhb127/ngrok-client
+    container_name: ngrok-client 
+    networks:
+      - "ngrok-client-net"
+    ports:
+      - "4040:4040"
+    environment:
+      NGROK_SERVER_ADDR: "youdomain.com:4443"
+      NGROK_SUBDOMAIN: "yoursubdomain"
+      NGROK_PORT: "yourport"
+networks:
+  ngrok-client-net:
