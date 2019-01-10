@@ -7,7 +7,7 @@ if [ -z "$NGROK_SERVER_ADDR" ]; then
   exit 1
 fi
 
-sed -i "1c server_addr: \"$NGROK_SERVER_ADDR\"" /ngrok.cfg
+sed -i "s/server_addr:.*/server_addr: \"$NGROK_SERVER_ADDR\"/" /ngrok.cfg
 
 NGROK_LOG=${NGROK_LOG:-"stdout"}
 
